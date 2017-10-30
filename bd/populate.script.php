@@ -20,6 +20,4 @@ function populate ($con) {
 
 populate($con);
 
-
-
 ?>

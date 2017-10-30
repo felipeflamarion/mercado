@@ -1,7 +1,7 @@
 <?php
 
 $tipo_produto = '''
-CREATE TABLE tipo_produto(
+CREATE TABLE IF NOT EXISTS tipo_produto (
 	id SERIAL,
     descricao VARCHAR(25) NOT NULL,
     percentual_imposto INTEGER NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE tipo_produto(
 ''';
 
 $produto = '''
-CREATE TABLE produto(
+CREATE TABLE IF NOT EXISTS produto(
 	id SERIAL,
     descricao VARCHAR(50) NOT NULL,
     preco NUMERIC NOT NULL,

@@ -7,7 +7,6 @@ $user = 'postgres';
 $password = 'postgres';
 
 // Conexão
-
 $con = null;
 try{
     $con = pg_connect("dbname=$dbname host=$host port=$port user=$user password=$password");

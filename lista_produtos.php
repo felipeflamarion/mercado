@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Cadastro Produto';
+$page_title = 'Produtos';
 require_once('bd/conectar.script.php');
 require_once('models/produto.php');
 

@@ -16,7 +16,6 @@ require_once('models/tipo_produto.php');
         <?php require_once('blocks/menu.block.php'); ?>
         <!-- Content start !-->
         <?php
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             require_once('models/produto.php');
             $novo_produto = new ProdutoModel();
@@ -27,9 +26,7 @@ require_once('models/tipo_produto.php');
                 echo("Produto $novo_produto->descricao cadastrado!");
             else
                 echo("Não foi possível cadastrar o produto!");
-
         }
-
         ?>
         <form method="POST" action="">
             <p>
