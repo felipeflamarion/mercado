@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Index';
-require_once('bd/conectar.script.php');
+require_once('bd/conectar.php');
 // require_once('models/tipo_produto.php');
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once('bd/conectar.script.php');
         <?php require_once('blocks/topo.block.php'); ?>
         <?php require_once('blocks/menu.block.php'); ?>
         <!-- Content start !-->
-        
+
         <!-- Content end -->
     </body>
 </html>

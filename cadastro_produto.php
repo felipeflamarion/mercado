@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Cadastro Produto';
-require_once('bd/conectar.script.php');
+require_once('bd/conectar.php');
 require_once('models/tipo_produto.php');
 // $tipos_produto = pg_fetch_all($resultados);
 // var_dump($tipos_produto);

@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Produtos';
-require_once('bd/conectar.script.php');
+require_once('bd/conectar.php');
 require_once('models/produto.php');
 
 ?>
@@ -21,7 +21,9 @@ require_once('models/produto.php');
         if($produtos) {
             echo '<ul>';
             foreach ($produtos as $produto)
-                echo '<li>'.$produto['id'].' - '.$produto['descricao'].'</li>';
+                echo '<li>'.$produto['id'].' - '.
+                    '<a href="visualiza_produto.php?id='.$produto['id'].'">'.$produto['descricao'].'</a>'.
+                '</li>';
             echo '</ul>';
         }
         ?>

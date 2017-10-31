@@ -17,7 +17,9 @@ class ProdutoModel {
     }
 
     public function buscar($con) {
-        // Implementar método
+        $query = "SELECT p.*, t.descricao as descricao_tipo, t.percentual_imposto FROM produto p INNER JOIN tipo_produto t ON (p.tipo_produto = t.id) WHERE p.id = $this->id";
+        $resultado = executar($con, $query);
+        return pg_fetch_assoc($resultado);
     }
 
     public function listar($con) {
