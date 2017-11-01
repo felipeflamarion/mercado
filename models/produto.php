@@ -13,7 +13,8 @@ class ProdutoModel {
     }
 
     public function atualizar($con) {
-        // Implementar método
+        $query = "UPDATE produto SET descricao = '$this->descricao', preco = $this->preco, tipo_produto = $this->tipo_produto WHERE id = $this->id";
+        return executar($con, $query);
     }
 
     public function buscar($con) {
@@ -22,8 +23,8 @@ class ProdutoModel {
         return pg_fetch_assoc($resultado);
     }
 
-    public function listar($con) {
-        $query = "SELECT p.*, t.descricao as descricao_tipo, t.percentual_imposto FROM produto p INNER JOIN tipo_produto t ON (p.tipo_produto = t.id)";
+    public function listar($con, $order='id') {
+        $query = "SELECT p.*, t.descricao as descricao_tipo, t.percentual_imposto FROM produto p INNER JOIN tipo_produto t ON (p.tipo_produto = t.id) ORDER BY $order ASC";
         $resultado = executar($con, $query);
         return pg_fetch_all($resultado);
     }

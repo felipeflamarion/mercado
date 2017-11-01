@@ -19,7 +19,7 @@ function executar($con, $query) {
     try {
         return pg_query($con, $query);
     } catch (Exception $e) {
+        echo($e);
         return null;
-        print($e);
     }
 }

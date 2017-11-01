@@ -22,6 +22,7 @@ require_once('models/produto.php');
 
             if($produto) {
                 echo('<h2>Produto</h2>');
+                echo('<p><a href="cadastro_produto.php?id='.$produto['id'].'">Editar</a></p>');
                 foreach ($produto as $campo => $valor) {
                     echo('<p>'.$campo.': '.$valor.'</p>');
                 }

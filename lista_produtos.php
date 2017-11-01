@@ -16,13 +16,15 @@ require_once('models/produto.php');
         <h3>Lista de Produtos</h3>
         <?php
         $produto_model = new ProdutoModel();
-        $produtos = $produto_model->listar($con);
+        $produtos = $produto_model->listar($con, 'descricao');
 
         if($produtos) {
             echo '<ul>';
             foreach ($produtos as $produto)
-                echo '<li>'.$produto['id'].' - '.
-                    '<a href="visualiza_produto.php?id='.$produto['id'].'">'.$produto['descricao'].'</a>'.
+                echo '<li>'.
+                    '<a href="visualiza_produto.php?id='.$produto['id'].'"><strong>'.$produto['descricao'].'</strong></a><br />'.
+                    'R$ '.$produto['preco'].
+                    ' - <a href="cadastro_produto.php?id='.$produto['id'].'">Editar</a>'.
                 '</li>';
             echo '</ul>';
         }

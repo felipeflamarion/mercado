@@ -12,15 +12,18 @@ class TipoProdutoModel {
     }
 
     public function atualizar($con) {
-        $query = "UPDATE tipo_produto SET descricao = $this->descricao, percentual_imposto = $this->percentual_imposto WHERE id = $this->id";
+        $query = "UPDATE tipo_produto SET descricao = '$this->descricao', percentual_imposto = $this->percentual_imposto WHERE id = $this->id";
+        return executar($con, $query);
     }
 
     public function buscar($con) {
         $query = "SELECT * FROM tipo_produto WHERE id = $this->id";
+        $resultado = executar($con, $query);
+        return pg_fetch_assoc($resultado);
     }
 
-    public function listar($con) {
-        $query = "SELECT * FROM tipo_produto";
+    public function listar($con, $order='id') {
+        $query = "SELECT * FROM tipo_produto ORDER BY $order ASC";
         $resultado = executar($con, $query);
         return pg_fetch_all($resultado);
     }
