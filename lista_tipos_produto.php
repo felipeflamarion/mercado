@@ -2,7 +2,6 @@
 $page_title = 'Produtos';
 require_once('bd/conectar.php');
 require_once('models/tipo_produto.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,14 +18,18 @@ require_once('models/tipo_produto.php');
         $tipos_produto = $tipo_produto_model->listar($con, 'descricao');
 
         if($tipos_produto) {
-            echo '<ul>';
+            echo('<ul>');
             foreach ($tipos_produto as $tipo_produto)
-                echo '<li>'.
+                echo('<li>'.
                     '<strong>'.$tipo_produto['descricao'].'</strong><br />'.
                     ' (Imposto: '.$tipo_produto['percentual_imposto'].'%) '.
                     ' - <a href="cadastro_tipo_produto.php?id='.$tipo_produto['id'].'">Editar</a>'.
-                '</li>';
-            echo '</ul>';
+                '</li>');
+            echo ('</ul>');
+        }
+        else {
+            echo('<p>Não existem tipos de produto cadastrados!</p>');
+            echo('<a href="cadastro_tipo_produto.php">Cadastre aqui</a>');
         }
         ?>
         <!-- Content end -->

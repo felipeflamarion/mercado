@@ -2,7 +2,6 @@
 $page_title = 'Produtos';
 require_once('bd/conectar.php');
 require_once('models/produto.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,6 +25,10 @@ require_once('models/produto.php');
                 foreach ($produto as $campo => $valor) {
                     echo('<p>'.$campo.': '.$valor.'</p>');
                 }
+                $impostos = $produto['preco'] * ($produto['percentual_imposto'] / 100);
+                echo('<h4>Valor líquido: R$ '.number_format(($produto['preco'] - $impostos), 2).'</h4>');
+                echo('<h4>Imposto: R$ '.number_format($impostos, 2).'</h4>');
+                echo('<h2>Valor total: R$ '.number_format($produto['preco'], 2).'</h3>');
             }
             else {
                 echo('<p>Produto '.$_GET['id'].' inexistente</p>');

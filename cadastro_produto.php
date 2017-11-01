@@ -3,9 +3,6 @@ $page_title = 'Cadastro de produto';
 require_once('bd/conectar.php');
 require_once('models/tipo_produto.php');
 require_once('models/produto.php');
-// $tipos_produto = pg_fetch_all($resultados);
-// var_dump($tipos_produto);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +15,7 @@ require_once('models/produto.php');
         <!-- Content start !-->
         <?php
 
-        if ($_GET['id']) {
+        if (isset($_GET['id'])) {
             $produto_model = new ProdutoModel();
             $produto_model->id = $_GET['id'];
             $produto = $produto_model->buscar($con);

@@ -1,7 +1,6 @@
 <?php
 $page_title = 'Index';
 require_once('bd/conectar.php');
-// require_once('models/tipo_produto.php');
 ?>
 <!DOCTYPE html>
 <html>

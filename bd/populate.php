@@ -1,6 +1,6 @@
 <?php
 require_once('../models/tipo_produto.php');
-require_once('conectar.script.php');
+require_once('conectar.php');
 
 // Tipo produto
 function cad_tipo_produto($con, $descricao, $percentual_imposto){

@@ -2,7 +2,6 @@
 $page_title = 'Cadastro de tipo de produto';
 require_once('bd/conectar.php');
 require_once('models/tipo_produto.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +14,7 @@ require_once('models/tipo_produto.php');
         <!-- Content start !-->
         <?php
 
-        if ($_GET['id']) {
+        if (isset($_GET['id'])) {
             $tipo_produto_model = new TipoProdutoModel();
             $tipo_produto_model->id = $_GET['id'];
             $tipo_produto = $tipo_produto_model->buscar($con);
@@ -26,7 +25,7 @@ require_once('models/tipo_produto.php');
             if(isset($tipo_produto))
                 $novo_tipo_produto->id = $tipo_produto['id'];
             $novo_tipo_produto->descricao = $_POST['descricao'];
-            $novo_tipo_produto->percentual_imposto = $_POST['percentual_imposto'];
+            $novo_tipo_produto->percentual_imposto = str_replace(',', '.', $_POST['percentual_imposto']);
 
             if(!isset($tipo_produto)) {
                 if($novo_tipo_produto->criar($con))

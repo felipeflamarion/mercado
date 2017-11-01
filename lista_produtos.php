@@ -2,7 +2,6 @@
 $page_title = 'Produtos';
 require_once('bd/conectar.php');
 require_once('models/produto.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,14 +18,18 @@ require_once('models/produto.php');
         $produtos = $produto_model->listar($con, 'descricao');
 
         if($produtos) {
-            echo '<ul>';
+            echo('<ul>');
             foreach ($produtos as $produto)
-                echo '<li>'.
+                echo('<li>'.
                     '<a href="visualiza_produto.php?id='.$produto['id'].'"><strong>'.$produto['descricao'].'</strong></a><br />'.
                     'R$ '.$produto['preco'].
                     ' - <a href="cadastro_produto.php?id='.$produto['id'].'">Editar</a>'.
-                '</li>';
-            echo '</ul>';
+                '</li>');
+            echo('</ul>');
+        }
+        else {
+            echo('<p>Não existem produtos cadastrados!</p>');
+            echo('<a href="cadastro_produto.php">Cadastre aqui</a>');
         }
         ?>
         <!-- Content end -->

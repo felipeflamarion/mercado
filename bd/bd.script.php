@@ -4,7 +4,7 @@ $tipo_produto = '''
 CREATE TABLE IF NOT EXISTS tipo_produto (
 	id SERIAL,
     descricao VARCHAR(25) NOT NULL,
-    percentual_imposto INTEGER NOT NULL,
+    percentual_imposto NUMERIC NOT NULL,
     CONSTRAINT pk_tipo_produto PRIMARY KEY (id)
 )
 ''';
