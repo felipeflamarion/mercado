@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Remover Itens';
+$page_title = 'Remover Item';
 require_once('bd/conectar.php');
 require_once('models/item.php');
 ?>

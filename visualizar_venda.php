@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Venda';
+$page_title = 'Visualizar Venda';
 require_once('bd/conectar.php');
 require_once('models/venda.php');
 require_once('models/item.php');

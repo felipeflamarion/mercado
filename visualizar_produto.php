@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Produtos';
+$page_title = 'Visualizar Produto';
 require_once('bd/conectar.php');
 require_once('models/produto.php');
 require_once('models/item.php');

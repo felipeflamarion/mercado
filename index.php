@@ -1,11 +1,10 @@
 <?php
-$page_title = 'Index';
+$page_title = 'Página Inicial';
 require_once('bd/conectar.php');
 ?>
 <!DOCTYPE html>
 <html>
     <?php
-    // $page_title = 'Index';
     require_once('blocks/head.block.php')
     ?>
     <body>

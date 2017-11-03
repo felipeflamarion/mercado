@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Cadastro de tipo de produto';
+$page_title = 'Cadastro de Tipo de Produto';
 require_once('bd/conectar.php');
 require_once('models/tipo_produto.php');
 ?>

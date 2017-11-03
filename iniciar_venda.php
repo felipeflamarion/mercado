@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Cadastro de venda';
+$page_title = 'Iniciar Venda';
 require_once('bd/conectar.php');
 require_once('models/venda.php');
 ?>
