@@ -25,7 +25,7 @@ require_once('models/item.php');
 
                 echo('<p>
                     <a href="visualizar_produto.php?id='.$_GET['id'].'">Visualizar Produto</a> |
-                    <a href="visualizar_venda.php?='.$_SESSION['venda'].'">Visualizar Venda</a>
+                    <a href="visualizar_venda.php?id='.$_SESSION['venda'].'">Visualizar Venda</a>
                 </p>');
             }
             else

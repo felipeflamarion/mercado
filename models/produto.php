@@ -29,6 +29,12 @@ class ProdutoModel {
         return pg_fetch_all($resultado);
     }
 
+    public function listar_nao_adicionados_a_venda($con, $venda, $order='id') {
+        $query = "SELECT p.*, t.descricao as descricao_tipo, t.percentual_imposto FROM produto p INNER JOIN tipo_produto t ON (p.tipo_produto = t.id) WHERE p.id NOT IN (SELECT produto FROM item WHERE venda = $venda) ORDER BY $order ASC";
+        $resultado = executar($con, $query);
+        return pg_fetch_all($resultado);
+    }
+
 }
 
 ?>

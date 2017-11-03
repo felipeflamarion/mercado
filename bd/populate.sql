@@ -9,6 +9,7 @@ INSERT INTO tipo_produto (id, descricao, percentual_imposto) VALUES
     (8, 'Carne', 40),
     (9, 'Embutido', 28),
     (10, 'Hortifruti', 17);
+ALTER SEQUENCE tipo_produto_id_seq OWNED BY tipo_produto.id RESTART WITH 11;
 
 INSERT INTO produto(id, descricao, preco, tipo_produto) VALUES
 	(1, 'Arroz Dona Francisca 5 KG', 9.80, 4),
@@ -26,4 +27,4 @@ INSERT INTO produto(id, descricao, preco, tipo_produto) VALUES
     (13, 'Salsicha Boehmerwald 5KG', 32.90, 9),
     (14, 'Melancia', 5.85, 10),
     (15, 'Abacaxi', 3.90, 10);
-  
+ALTER SEQUENCE produto_id_seq OWNED BY produto.id RESTART WITH 16;

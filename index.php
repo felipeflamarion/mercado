@@ -5,7 +5,7 @@ require_once('bd/conectar.php');
 <!DOCTYPE html>
 <html>
     <?php
-    require_once('blocks/head.block.php')
+    require_once('blocks/head.block.php');
     ?>
     <body>
         <?php require_once('blocks/topo.block.php'); ?>

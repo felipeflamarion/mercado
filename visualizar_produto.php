@@ -59,7 +59,7 @@ require_once('models/item.php');
                     $item_model->venda = $_SESSION['venda'];
                     $item_model->produto = $produto['id'];
                     $item = $item_model->buscar($con);
-                    require_once('forms/adicionar_item.php');
+                    require_once('forms/adicionar_item_via_produto.php');
                 }
             }
             else
