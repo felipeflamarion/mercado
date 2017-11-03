@@ -26,10 +26,11 @@ require_once('models/item.php');
                 }
                 $item_model = new ItemModel();
                 if($item_model->deletar_por_venda($con, $venda['id']) && $venda_model->deletar($con)) {
+                    if(isset($_SESSION['venda']));
+                        unset($_SESSION['venda']);
                     echo('<p>Venda #'.$_GET['id'].' cancelada!</p>');
-                    echo('<a href="lista_vendas.php">Lista de vendas</a>');
+                    echo('<a href="listar_vendas.php">Lista de vendas</a>');
                 }
-
             }
             else
                 echo('<p>Venda '.$_GET['id'].' inexistente</p>');

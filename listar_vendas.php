@@ -26,14 +26,14 @@ require_once('models/venda.php');
                 echo('Início em: '.$venda['dt_abertura']);
                 echo(' e Finalizado em: '.$venda['dt_conclusao']);
                 if(!$venda['dt_conclusao'])
-                    echo('</br><a href="cancelar_venda.php?id='.$venda['id'].'">Cancelar Pedido</a>');
+                    echo('</br><a href="cancelar_venda.php?id='.$venda['id'].'">Cancelar Venda</a>');
                 echo('</li>');
             }
             echo('</ul>');
         }
         else {
             echo('<p>Não existem vendas cadastradas!</p>');
-            echo('<a href="cadastro_venda.php">Cadastre aqui</a>');
+            echo('<a href="cadastrar_venda.php">Cadastre aqui</a>');
         }
 
         ?>

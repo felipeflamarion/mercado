@@ -43,7 +43,7 @@ require_once('models/tipo_produto.php');
             }
         }
         ?>
-        <form method="POST" action="cadastro_tipo_produto.php<?php if(isset($tipo_produto)){ echo '?id='.$tipo_produto['id']; } ?>">
+        <form method="POST" action="cadastrar_tipo_produto.php<?php if(isset($tipo_produto)){ echo '?id='.$tipo_produto['id']; } ?>">
             <p>
                 <strong>Descrição</strong><br />
                 <input type="text" name="descricao" placeholder="Cereal" <?php if(isset($tipo_produto)){ echo('value="'.$tipo_produto['descricao'].'"'); } ?> />

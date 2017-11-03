@@ -1,3 +1,16 @@
 ul li{
     margin-bottom: 10px;
 }
+
+table {
+    text-align: center;
+}
+
+table thead{
+    font-size: 14px;
+}
+
+table td, table th {
+    border: 1px solid #000;
+    padding: 2.5px 10px;
+}

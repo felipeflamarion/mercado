@@ -19,17 +19,18 @@ require_once('models/produto.php');
 
         if($produtos) {
             echo('<ul>');
-            foreach ($produtos as $produto)
-                echo('<li>'.
-                    '<a href="visualiza_produto.php?id='.$produto['id'].'"><strong>'.$produto['descricao'].'</strong></a><br />'.
-                    'R$ '.$produto['preco'].
-                    ' - <a href="cadastro_produto.php?id='.$produto['id'].'">Editar</a>'.
-                '</li>');
+            foreach ($produtos as $produto) {
+                echo('<li>');
+                echo('<a href="visualizar_produto.php?id='.$produto['id'].'"><strong>'.$produto['descricao'].'</strong></a><br />');
+                echo('R$ '.$produto['preco']);
+                echo(' - <a href="cadastrar_produto.php?id='.$produto['id'].'">Editar</a>');
+                echO('</li>');
+            }
             echo('</ul>');
         }
         else {
             echo('<p>Não existem produtos cadastrados!</p>');
-            echo('<a href="cadastro_produto.php">Cadastre aqui</a>');
+            echo('<a href="cadastrar_produto.php">Cadastre aqui</a>');
         }
         ?>
         <!-- Content end -->

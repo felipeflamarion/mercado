@@ -14,11 +14,13 @@ require_once('models/venda.php');
         <!-- Content start !-->
         <h2>Iniciando nova venda...</h2>
         <?php
-
         date_default_timezone_set("America/Sao_Paulo");
         $venda = new VendaModel();
         $venda->dt_abertura = date('Y-m-d H:m:s');
         if($venda->criar($con)) {
+            if(isset($_SESSION['venda']))
+                echo('<p>Venda '.$_SESSION['venda'].' não foi finalizada!</p>');
+            $_SESSION['venda'] = $venda->id;
             echo('<p>Venda iniciada com sucesso!</p>');
             if($venda->id) {
                 echo('<a href="cancelar_venda.php?id='.$venda->id.'">Cancelar</a> - ');

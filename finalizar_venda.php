@@ -20,8 +20,11 @@ require_once('models/venda.php');
             $venda = $venda_model->buscar($con);
 
             if($venda) {
-                if($venda_model->finalizar($con))
+                if($venda_model->finalizar($con)) {
+                    if(isset($_SESSION['venda']));
+                        unset($_SESSION['venda']);
                     header('location:visualizar_venda.php?id='.$venda['id'].'&v=finalizada');
+                }
                 else
                     echo('<p>Não foi possível finalizar a venda!</p>');
             }

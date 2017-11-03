@@ -23,13 +23,13 @@ require_once('models/tipo_produto.php');
                 echo('<li>'.
                     '<strong>'.$tipo_produto['descricao'].'</strong><br />'.
                     ' (Imposto: '.$tipo_produto['percentual_imposto'].'%) '.
-                    ' - <a href="cadastro_tipo_produto.php?id='.$tipo_produto['id'].'">Editar</a>'.
+                    ' - <a href="cadastrar_tipo_produto.php?id='.$tipo_produto['id'].'">Editar</a>'.
                 '</li>');
             echo ('</ul>');
         }
         else {
             echo('<p>Não existem tipos de produto cadastrados!</p>');
-            echo('<a href="cadastro_tipo_produto.php">Cadastre aqui</a>');
+            echo('<a href="cadastrar_tipo_produto.php">Cadastre aqui</a>');
         }
         ?>
         <!-- Content end -->

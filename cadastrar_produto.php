@@ -45,7 +45,7 @@ require_once('models/produto.php');
             }
         }
         ?>
-        <form method="POST" action="cadastro_produto.php<?php if(isset($produto)){ echo '?id='.$produto['id']; } ?>">
+        <form method="POST" action="cadastrar_produto.php<?php if(isset($produto)){ echo '?id='.$produto['id']; } ?>">
             <p>
                 <strong>Descrição</strong><br />
                 <input type="text" name="descricao" placeholder="Maracujá Joinville" <?php if(isset($produto)){ echo('value="'.$produto['descricao'].'"'); } ?> />

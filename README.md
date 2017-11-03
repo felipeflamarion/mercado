@@ -20,3 +20,13 @@ __Banco de Dados:__ PostgreSQL 9.4
 * id (PK)
 * descricao
 * percentual_imposto
+
+#### Venda
+* id (PK)
+* dt_abertura
+* dt_conclusao
+
+#### Item
+* venda (PK)(FK)
+* produto (PK)(FK)
+* quantidade
