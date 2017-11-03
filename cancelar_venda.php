@@ -14,7 +14,6 @@ require_once('models/item.php');
         <?php require_once('blocks/menu.block.php'); ?>
         <!-- Content start !-->
         <?php
-
         if(isset($_GET['id'])) {
             $venda_model = new VendaModel();
             $venda_model->id = $_GET['id'];
@@ -28,8 +27,9 @@ require_once('models/item.php');
                 if($item_model->deletar_por_venda($con, $venda['id']) && $venda_model->deletar($con)) {
                     if(isset($_SESSION['venda']));
                         unset($_SESSION['venda']);
-                    echo('<p>Venda #'.$_GET['id'].' cancelada!</p>');
-                    echo('<a href="listar_vendas.php">Lista de vendas</a>');
+                    header('location:listar_vendas.php?v=cancelada');
+                    // echo('<p>Venda #'.$_GET['id'].' cancelada!</p>');
+                    // echo('<a href="listar_vendas.php">Lista de vendas</a>');
                 }
             }
             else

@@ -22,15 +22,25 @@ require_once('models/item.php');
             if($produto) {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if(isset($_SESSION['venda'])) {
-                        $novo_item = new ItemModel();
-                        $novo_item->quantidade = $_POST['quantidade'];
-                        $novo_item->produto = $produto['id'];
-                        $novo_item->venda = $_SESSION['venda'];
-                        if($novo_item->criar($con)) {
-                            echo('<p>Produto adicionado à venda!</p>');
+                        $item_model = new ItemModel();
+                        if($_POST['quantidade'] <= 0)
+                            $_POST['quantidade'] = 1;
+                        $item_model->quantidade = $_POST['quantidade'];
+                        $item_model->produto = $produto['id'];
+                        $item_model->venda = $_SESSION['venda'];
+
+                        if($item_model->buscar($con)) {
+                            if($item_model->atualizar($con))
+                                echo('<p>Item editado na venda atual!</p>');
+                            else
+                                echo('<p>Não foi possível editar o item!</p>');
                         }
-                        else
-                            echo('<p>Não foi possível adicionar este produto à venda!</p>');
+                        else {
+                            if($item_model->criar($con))
+                                echo('<p>Produto adicionado à venda!</p>');
+                            else
+                                echo('<p>Não foi possível adicionar o produto à venda!</p>');
+                        }
                     }
                     else
                         echo('<p>Não há venda ativa no sistema! <a href="cadastrar_venda.php">Iniciar venda</a></p>');
@@ -44,16 +54,19 @@ require_once('models/item.php');
                 echo('<h4>Imposto: R$ '.number_format($impostos, 2).' ('.$produto['percentual_imposto'].'%)</h4>');
                 echo('<h1>Valor total: R$ '.number_format($produto['preco'], 2).'</h1>');
 
-                if(isset($_SESSION['venda']))
+                if(isset($_SESSION['venda'])) {
+                    $item_model = new ItemModel();
+                    $item_model->venda = $_SESSION['venda'];
+                    $item_model->produto = $produto['id'];
+                    $item = $item_model->buscar($con);
                     require_once('forms/adicionar_item.php');
+                }
             }
-            else {
+            else
                 echo('<p>Produto '.$_GET['id'].' inexistente</p>');
-            }
         }
-        else {
+        else
             echo('<p>Produto não informado!</p>');
-        }
         ?>
         <!-- Content end -->
     </body>

@@ -14,10 +14,12 @@ require_once('models/venda.php');
         <!-- Content start !-->
         <h3>Lista de Vendas</h3>
         <?php
+        if(isset($_GET['v']))
+            if($_GET['v'] == 'cancelada')
+                echo('<h4>Venda cancelada com sucesso!</h4>');
 
         $venda_model = new VendaModel();
         $vendas = $venda_model->listar($con, 'id', 'DESC');
-
         if($vendas) {
             echo('<ul>');
             foreach ($vendas as $venda) {
@@ -33,7 +35,7 @@ require_once('models/venda.php');
         }
         else {
             echo('<p>Não existem vendas cadastradas!</p>');
-            echo('<a href="cadastrar_venda.php">Cadastre aqui</a>');
+            echo('<a href="iniciar_venda.php">Cadastre aqui</a>');
         }
 
         ?>

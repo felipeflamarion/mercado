@@ -74,7 +74,7 @@ require_once('models/item.php');
                 else {
                     echo('<p>Esta venda não possui itens!</p>');
                     if($venda['dt_conclusao'] == '')
-                        echo('<p><a href="lista_produtos.php">Adicionar Produtos</a></p>');
+                        echo('<p><a href="listar_produtos.php">Adicionar Produtos</a></p>');
                 }
 
                 if($venda['dt_conclusao'] == '') { ?>
