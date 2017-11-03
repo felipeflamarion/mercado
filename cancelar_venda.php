@@ -28,8 +28,6 @@ require_once('models/item.php');
                     if(isset($_SESSION['venda']));
                         unset($_SESSION['venda']);
                     header('location:listar_vendas.php?v=cancelada');
-                    // echo('<p>Venda #'.$_GET['id'].' cancelada!</p>');
-                    // echo('<a href="listar_vendas.php">Lista de vendas</a>');
                 }
             }
             else

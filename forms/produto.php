@@ -1,11 +1,11 @@
 <form method="POST" action="cadastrar_produto.php<?php if(isset($produto)){ echo '?id='.$produto['id']; } ?>">
     <p>
         <strong>Descrição</strong><br />
-        <input type="text" name="descricao" placeholder="Maracujá Joinville" <?php if(isset($produto)){ echo('value="'.$produto['descricao'].'"'); } ?> />
+        <input type="text" name="descricao" placeholder="Maracujá Joinville" required="required" <?php if(isset($produto)){ echo('value="'.$produto['descricao'].'"'); } ?> />
     </p>
     <p>
         <strong>Tipo</strong><br />
-        <select name="tipo_produto">
+        <select name="tipo_produto" required="required">
             <option value="">Selecione...</option>
             <?php
                 $tipos_produto_model = new TipoProdutoModel();
@@ -23,7 +23,7 @@
     </p>
     <p>
         <strong>Preço (em R$)</strong><br />
-        <input type="text" name="preco" placeholder="15,00" <?php if(isset($produto)){ echo('value="'.floatval($produto['preco']).'"'); } ?> />
+        <input type="text" name="preco" placeholder="15,00" required="required" <?php if(isset($produto)){ echo('value="'.floatval($produto['preco']).'"'); } ?> />
     </p>
 
     <input type="submit" value="Cadastrar" />

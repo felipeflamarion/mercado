@@ -2,7 +2,7 @@
     <h3>Adicionar Produto</h3>
     <p>
         <strong>Produto</strong>
-        <select name="produto">
+        <select name="produto" required="required">
             <option value="">Selecione...</option>
             <?php
             foreach($produtos as $produto) {
