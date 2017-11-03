@@ -2,14 +2,22 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.4.14
+-- Dumped by pg_dump version 10.0
+
+-- Started on 2017-11-03 17:14:18
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
+-- TOC entry 1 (class 3079 OID 11855)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -17,6 +25,8 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
+-- TOC entry 2041 (class 0 OID 0)
+-- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -30,7 +40,8 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: item; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 179 (class 1259 OID 16955)
+-- Name: item; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE item (
@@ -43,7 +54,8 @@ CREATE TABLE item (
 ALTER TABLE item OWNER TO postgres;
 
 --
--- Name: produto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 176 (class 1259 OID 16930)
+-- Name: produto; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE produto (
@@ -57,6 +69,7 @@ CREATE TABLE produto (
 ALTER TABLE produto OWNER TO postgres;
 
 --
+-- TOC entry 175 (class 1259 OID 16928)
 -- Name: produto_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -71,6 +84,8 @@ CREATE SEQUENCE produto_id_seq
 ALTER TABLE produto_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 2042 (class 0 OID 0)
+-- Dependencies: 175
 -- Name: produto_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -78,7 +93,8 @@ ALTER SEQUENCE produto_id_seq OWNED BY produto.id;
 
 
 --
--- Name: tipo_produto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 174 (class 1259 OID 16917)
+-- Name: tipo_produto; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE tipo_produto (
@@ -91,6 +107,7 @@ CREATE TABLE tipo_produto (
 ALTER TABLE tipo_produto OWNER TO postgres;
 
 --
+-- TOC entry 173 (class 1259 OID 16915)
 -- Name: tipo_produto_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -105,6 +122,8 @@ CREATE SEQUENCE tipo_produto_id_seq
 ALTER TABLE tipo_produto_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 2043 (class 0 OID 0)
+-- Dependencies: 173
 -- Name: tipo_produto_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -112,7 +131,8 @@ ALTER SEQUENCE tipo_produto_id_seq OWNED BY tipo_produto.id;
 
 
 --
--- Name: venda; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 178 (class 1259 OID 16948)
+-- Name: venda; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE venda (
@@ -125,6 +145,7 @@ CREATE TABLE venda (
 ALTER TABLE venda OWNER TO postgres;
 
 --
+-- TOC entry 177 (class 1259 OID 16946)
 -- Name: venda_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -139,6 +160,8 @@ CREATE SEQUENCE venda_id_seq
 ALTER TABLE venda_id_seq OWNER TO postgres;
 
 --
+-- TOC entry 2044 (class 0 OID 0)
+-- Dependencies: 177
 -- Name: venda_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -146,27 +169,32 @@ ALTER SEQUENCE venda_id_seq OWNED BY venda.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 1900 (class 2604 OID 16933)
+-- Name: produto id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY produto ALTER COLUMN id SET DEFAULT nextval('produto_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 1899 (class 2604 OID 16920)
+-- Name: tipo_produto id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tipo_produto ALTER COLUMN id SET DEFAULT nextval('tipo_produto_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 1901 (class 2604 OID 16951)
+-- Name: venda id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY venda ALTER COLUMN id SET DEFAULT nextval('venda_id_seq'::regclass);
 
 
 --
+-- TOC entry 2033 (class 0 OID 16955)
+-- Dependencies: 179
 -- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -175,6 +203,8 @@ COPY item (venda, produto, quantidade) FROM stdin;
 
 
 --
+-- TOC entry 2030 (class 0 OID 16930)
+-- Dependencies: 176
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -183,13 +213,8 @@ COPY produto (id, descricao, preco, tipo_produto) FROM stdin;
 
 
 --
--- Name: produto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('produto_id_seq', 6, true);
-
-
---
+-- TOC entry 2028 (class 0 OID 16917)
+-- Dependencies: 174
 -- Data for Name: tipo_produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -198,13 +223,8 @@ COPY tipo_produto (id, descricao, percentual_imposto) FROM stdin;
 
 
 --
--- Name: tipo_produto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('tipo_produto_id_seq', 7, true);
-
-
---
+-- TOC entry 2032 (class 0 OID 16948)
+-- Dependencies: 178
 -- Data for Name: venda; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -213,14 +233,35 @@ COPY venda (id, dt_abertura, dt_conclusao) FROM stdin;
 
 
 --
+-- TOC entry 2045 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: produto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('produto_id_seq', 1, false);
+
+
+--
+-- TOC entry 2046 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: tipo_produto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('tipo_produto_id_seq', 1, false);
+
+
+--
+-- TOC entry 2047 (class 0 OID 0)
+-- Dependencies: 177
 -- Name: venda_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('venda_id_seq', 111, true);
+SELECT pg_catalog.setval('venda_id_seq', 1, false);
 
 
 --
--- Name: pk_item; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 1914 (class 2606 OID 16959)
+-- Name: item pk_item; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY item
@@ -228,7 +269,8 @@ ALTER TABLE ONLY item
 
 
 --
--- Name: pk_produto; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 1908 (class 2606 OID 16938)
+-- Name: produto pk_produto; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY produto
@@ -236,7 +278,8 @@ ALTER TABLE ONLY produto
 
 
 --
--- Name: pk_tipo_produto; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 1904 (class 2606 OID 16925)
+-- Name: tipo_produto pk_tipo_produto; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tipo_produto
@@ -244,7 +287,8 @@ ALTER TABLE ONLY tipo_produto
 
 
 --
--- Name: pk_venda; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 1912 (class 2606 OID 16954)
+-- Name: venda pk_venda; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY venda
@@ -252,7 +296,8 @@ ALTER TABLE ONLY venda
 
 
 --
--- Name: produto_descricao_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 1910 (class 2606 OID 16940)
+-- Name: produto produto_descricao_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY produto
@@ -260,7 +305,8 @@ ALTER TABLE ONLY produto
 
 
 --
--- Name: tipo_produto_descricao_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 1906 (class 2606 OID 16927)
+-- Name: tipo_produto tipo_produto_descricao_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY tipo_produto
@@ -268,7 +314,8 @@ ALTER TABLE ONLY tipo_produto
 
 
 --
--- Name: fk_item_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1917 (class 2606 OID 16965)
+-- Name: item fk_item_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY item
@@ -276,7 +323,8 @@ ALTER TABLE ONLY item
 
 
 --
--- Name: fk_item_venda; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1916 (class 2606 OID 16960)
+-- Name: item fk_item_venda; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY item
@@ -284,7 +332,8 @@ ALTER TABLE ONLY item
 
 
 --
--- Name: fk_produto_tipo_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 1915 (class 2606 OID 16941)
+-- Name: produto fk_produto_tipo_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY produto
@@ -292,6 +341,8 @@ ALTER TABLE ONLY produto
 
 
 --
+-- TOC entry 2040 (class 0 OID 0)
+-- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
@@ -300,6 +351,8 @@ REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
+
+-- Completed on 2017-11-03 17:14:18
 
 --
 -- PostgreSQL database dump complete

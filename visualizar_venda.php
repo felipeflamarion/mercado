@@ -75,12 +75,12 @@ require_once('models/produto.php');
                             echo('<td>R$ '.number_format($item['preco'], 2).'</td>');
                             echo('<td>R$ '.number_format($item['quantidade'] * $item['preco'], 2).'</td>');
                             echo('<td>R$ '.number_format(($item['preco'] * ($item['percentual_imposto']/100)) * $item['quantidade'], 2).'</td>');
+                            echo('<td>');
                             if(isset($_SESSION['venda'])) {
-                                echo('<td>
-                                    <a href="visualizar_produto.php?id='.$item['produto'].'">Editar</a> |
-                                    <a href="remover_item.php?id='.$item['produto'].'">Remover</a>
-                                </td>');
+                                echo('<a href="visualizar_produto.php?id='.$item['produto'].'">Editar</a> |');
+                                echo('<a href="remover_item.php?id='.$item['produto'].'">Remover</a>');
                             }
+                            echo('</td>');
                             echo('</tr>');
                         }
                         ?>

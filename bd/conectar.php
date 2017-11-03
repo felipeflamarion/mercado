@@ -1,15 +1,9 @@
 <?php
-
-$dbname = 'mercado_virtual';
-$host = 'localhost';
-$port = '5432';
-$user = 'postgres';
-$password = 'postgres';
-
+require_once('config.php');
 // Conexão
 $con = null;
 try{
-    $con = pg_connect("dbname=$dbname host=$host port=$port user=$user password=$password");
+    $con = pg_connect("dbname=$_DBNAME host=$_HOST port=$_PORT user=$_USER password=$_PASSWORD");
 } catch (Exception $e) {
     print('$e');
 }
